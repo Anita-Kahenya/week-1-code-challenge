@@ -1,3 +1,9 @@
+let gross=document.getElementById("salary")
+let calculatedNet=document.getElementById("calc-net")
+let net=document.getElementById("net-salary")
+
+
+
 function netSalaryCalculator(gross){
     let paye
     let nhif
@@ -58,19 +64,16 @@ console.log("NHIF is : " + nhif)
         console.log ("Tier 2")
     }
     netSalary=gross-(nhif+paye)
-    console.log("The net salary is : " + netSalary)
+    net.textContent =`The net salary is :  ${netSalary}`
 }
 
-//user prompt to enter gross salary
+calculatedNet.addEventListener("click", (event)=>{
+    netSalaryCalculator(gross.value)
+    console.log(gross.value)
+})
 
-const readline = require('readline').createInterface({
-    input: process.stdin,
-    output: process.stdout
-  });
-  
-  readline.question('Enter gross salary ',gross => {
-    netSalaryCalculator(gross)
-    readline.close();
-  })
+
+
+
 
 
